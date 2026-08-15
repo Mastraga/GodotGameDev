@@ -8,7 +8,7 @@ class Ability:
 	var ability_score : int = 25:
 		set(value):
 			ability_score = clampi(value, 0, 100)
-	
+
 	func _init(min: float, max: float) -> void:
 		min_modifier = min
 		max_modifier = max
@@ -23,7 +23,16 @@ class Ability:
 		ability_score += randi_range(2, 5)
 
 var level := 1
-var xp := 0
+var xp := 0:
+	set(value):
+		xp = value
+		var boundary = percentage_level_upgrade_boundary()
+		print(boundary)
+		print(xp)
+		while xp > boundary:
+			level_up()
+			xp -= boundary
+			boundary = percentage_level_upgrade_boundary()
 
 # Damage Bonus on attack.
 var strength := Ability.new(2.0, 12.0)
@@ -49,9 +58,7 @@ func level_up() -> void:
 	agility.increase()
 	speed.increase()
 	endurance.increase()
-	
-	printt(strength.ability_score, 
-	agility.ability_score, 
-	speed.ability_score,
-	endurance.ability_score
-	)
+	print("You've reached level ", level)
+
+func percentage_level_upgrade_boundary() -> int:
+	return int(50 * pow(1.2, level))

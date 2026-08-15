@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://0rk6mar0ysob"]
+
+[ext_resource type="Script" uid="uid://kscxc0ah0cu3" path="res://Player/player.gd" id="1_l8h54"]
+[ext_resource type="Script" uid="uid://0knnxu858c6t" path="res://Player/smooth_camera_arm.gd" id="2_4ntmi"]
+[ext_resource type="Script" uid="uid://d0oc8bhh6cggb" path="res://Resources/CharacterStats.gd" id="2_od3ui"]
+[ext_resource type="PackedScene" uid="uid://b30eq4lc65mbc" path="res://Player/rig.tscn" id="3_btcbx"]
+[ext_resource type="Script" uid="uid://y1x38guc17n5" path="res://Player/attack_cast.gd" id="4_gwnis"]
+[ext_resource type="PackedScene" uid="uid://e3ak40n0dgjm" path="res://Player/health_component.tscn" id="5_k53q1"]
+[ext_resource type="PackedScene" uid="uid://dyucvm4ml1tp0" path="res://Player/area_attack.tscn" id="6_fhl08"]
+[ext_resource type="PackedScene" uid="uid://c6durlftx2yyk" path="res://Player/dash.tscn" id="7_vtle1"]
+
+[sub_resource type="Resource" id="Resource_vtle1"]
+script = ExtResource("2_od3ui")
+metadata/_custom_type_script = "uid://d0oc8bhh6cggb"
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_84ny0"]
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_84ny0"]
+
+[node name="Player" type="CharacterBody3D" unique_id=166513279 groups=["Player"]]
+collision_layer = 4
+script = ExtResource("1_l8h54")
+stats = SubResource("Resource_vtle1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1576882936]
+shape = SubResource("CapsuleShape3D_84ny0")
+
+[node name="SmoothCameraArm" type="SpringArm3D" parent="." unique_id=1487109494 node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 0.90630776, 0.42261827, 0, -0.42261827, 0.90630776, 0, 0, 0)
+shape = SubResource("SeparationRayShape3D_84ny0")
+spring_length = 4.0
+script = ExtResource("2_4ntmi")
+target = NodePath("../HorizontalPivot/VerticalPivot")
+
+[node name="Camera3D" type="Camera3D" parent="SmoothCameraArm" unique_id=537552843]
+
+[node name="HorizontalPivot" type="Node3D" parent="." unique_id=1055453727]
+
+[node name="VerticalPivot" type="Node3D" parent="HorizontalPivot" unique_id=1738911989]
+
+[node name="RigPivot" type="Node3D" parent="." unique_id=948392577]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="Rig" parent="RigPivot" unique_id=2008685454 instance=ExtResource("3_btcbx")]
+
+[node name="Skeleton3D" parent="RigPivot/Rig/CharacterRig/GameRig" parent_id_path=PackedInt32Array(2008685454, 1265756175, 63277129) index="0" unique_id=1217008905]
+bones/0/position = Vector3(3.375078e-15, 0.8921762, -0.048173558)
+bones/2/rotation = Quaternion(-0.004904419, -0.00046571688, 0.0032158105, 0.9999827)
+bones/3/rotation = Quaternion(-0.09932224, -0.00041686613, 0.008518106, 0.9950188)
+bones/4/rotation = Quaternion(0.2792337, 1.4158086e-08, 9.640626e-08, 0.9602232)
+bones/6/rotation = Quaternion(-0.15338974, -1.18117086e-07, -1.62263e-08, 0.98816574)
+bones/7/position = Vector3(-3.7874226e-08, 0.89217615, -0.04817346)
+bones/8/position = Vector3(-5.528756e-08, 0.89217615, -0.048173506)
+bones/9/position = Vector3(0.13114366, 0.95838046, -0.0351291)
+bones/9/rotation = Quaternion(0.9925045, 0.021127297, -0.03083006, 0.11635349)
+bones/11/rotation = Quaternion(0.4311666, -0.0007005767, 0.00033492554, 0.90227205)
+bones/13/rotation = Quaternion(-0.7562935, 0.011902813, 0.024429886, 0.65366787)
+bones/15/position = Vector3(-0.13114367, 0.95838046, -0.035129108)
+bones/15/rotation = Quaternion(0.9720482, -0.005996174, 0.0271731, 0.23312657)
+bones/17/rotation = Quaternion(0.45452404, 0.0033522658, -0.0017107098, 0.8907266)
+bones/19/rotation = Quaternion(-0.6924867, -0.028215246, -0.00042524963, 0.7208786)
+bones/21/position = Vector3(0.025128616, 1.4227424, 0.040717583)
+bones/21/rotation = Quaternion(-0.50119215, -0.25466564, -0.3942999, 0.726966)
+bones/22/position = Vector3(0.1873828, 1.4584885, -0.028791666)
+bones/22/rotation = Quaternion(0.059990518, -0.15812464, 0.97387034, -0.15157287)
+bones/23/rotation = Quaternion(7.445018e-08, -0.007658461, -1.8131661e-09, 0.99997073)
+bones/24/rotation = Quaternion(0.27979213, -0.0075992644, -0.016770212, 0.95988405)
+bones/46/position = Vector3(-0.011363529, 1.4227424, 0.040717576)
+bones/46/rotation = Quaternion(-0.526443, 0.20342839, 0.35904735, 0.74334365)
+bones/47/position = Vector3(-0.16251542, 1.4586214, -0.050415058)
+bones/47/rotation = Quaternion(-0.09945121, -0.13259831, 0.97103375, 0.17210713)
+bones/48/rotation = Quaternion(3.8131876e-08, -0.003010344, 8.701995e-09, 0.9999955)
+bones/49/rotation = Quaternion(0.30973405, -0.0030099272, 0.028553914, 0.9503897)
+bones/71/position = Vector3(0.12719111, 1.3400431, -0.027025891)
+bones/71/rotation = Quaternion(1.8959524e-08, 0.6181253, 0.7860797, -4.660495e-08)
+bones/72/position = Vector3(-0.113425955, 1.3400431, -0.027025918)
+bones/72/rotation = Quaternion(1.8959575e-08, 0.6181253, 0.7860797, -4.660489e-08)
+
+[node name="AnimationPlayer" parent="RigPivot/Rig/CharacterRig" parent_id_path=PackedInt32Array(2008685454, 1265756175) index="1" unique_id=1563695267]
+autoplay = &"Run"
+
+[node name="RightHandBone" parent="RigPivot/Rig" index="2" unique_id=103654962]
+transform = Transform3D(-0.96234363, -0.2707995, -0.023716806, 0.24686831, -0.9071467, 0.34079534, -0.11380182, 0.3221073, 0.9398381, -0.33633146, 0.97250974, -0.050342232)
+
+[node name="LeftHandBone" parent="RigPivot/Rig" index="3" unique_id=856925588]
+transform = Transform3D(-0.9705195, 0.23908749, 0.030491007, -0.22532147, -0.94491655, 0.23740987, 0.08557322, 0.22354051, 0.9709307, 0.34418797, 0.96240795, -0.06312189)
+
+[node name="RayAttachment" type="BoneAttachment3D" parent="RigPivot/Rig" unique_id=1584240129]
+transform = Transform3D(-0.96234363, -0.2707995, -0.023716806, 0.24686831, -0.9071467, 0.34079534, -0.11380182, 0.3221073, 0.9398381, -0.33633146, 0.97250974, -0.050342232)
+bone_name = "DEF-hand.R"
+bone_idx = 51
+use_external_skeleton = true
+external_skeleton = NodePath("../CharacterRig/GameRig/Skeleton3D")
+
+[node name="AttackCast" type="RayCast3D" parent="RigPivot/Rig/RayAttachment" unique_id=1346673142]
+unique_name_in_owner = true
+transform = Transform3D(-3.809701e-09, 4.3545086e-08, 1, 0.9961947, 0.08715586, 0, -0.087155804, 0.99619544, -4.371139e-08, -0.027513385, 0.067661405, 0.007884681)
+target_position = Vector3(0, 1, 0)
+collision_mask = 8
+script = ExtResource("4_gwnis")
+
+[node name="AreaAttack" parent="RigPivot/Rig" unique_id=1738437052 instance=ExtResource("6_fhl08")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+target_position = Vector3(0, 0, 1)
+collision_mask = 8
+
+[node name="Dash" parent="RigPivot" unique_id=204461526 node_paths=PackedStringArray("player") instance=ExtResource("7_vtle1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.026832342, 0)
+player = NodePath("../..")
+
+[node name="HealthComponent" parent="." unique_id=354799665 instance=ExtResource("5_k53q1")]
+
+[connection signal="heavy_attack" from="RigPivot/Rig" to="." method="_on_rig_heavy_attack"]
+[connection signal="defeat" from="HealthComponent" to="." method="_on_health_component_defeat"]
+
+[editable path="RigPivot/Rig"]
+[editable path="RigPivot/Rig/CharacterRig"]

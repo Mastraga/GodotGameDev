@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://c8uf70eetmk00"]
+
+[ext_resource type="Script" uid="uid://03otl2ls3vby" path="res://Enemy/enemy.gd" id="1_px1sc"]
+[ext_resource type="PackedScene" uid="uid://b30eq4lc65mbc" path="res://Player/rig.tscn" id="2_px1sc"]
+[ext_resource type="PackedScene" uid="uid://e3ak40n0dgjm" path="res://Player/health_component.tscn" id="3_am0pq"]
+[ext_resource type="PackedScene" uid="uid://dyucvm4ml1tp0" path="res://Player/area_attack.tscn" id="3_eqilm"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_84ny0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l4yld"]
+
+[node name="Enemy" type="CharacterBody3D" unique_id=456590351 groups=["Enemy"]]
+collision_layer = 9
+script = ExtResource("1_px1sc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=408365303]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_84ny0")
+
+[node name="Rig" parent="." unique_id=2008685454 instance=ExtResource("2_px1sc")]
+
+[node name="Skeleton3D" parent="Rig/CharacterRig/GameRig" parent_id_path=PackedInt32Array(2008685454, 1265756175, 63277129) index="0" unique_id=1217008905]
+bones/0/position = Vector3(9.518357e-15, 0.9049123, -0.048173558)
+bones/2/rotation = Quaternion(0.0032211852, -0.00033402775, 0.0032127388, 0.9999896)
+bones/3/rotation = Quaternion(-0.09188772, -0.0003202116, 0.008522981, 0.99573284)
+bones/4/rotation = Quaternion(0.27292514, 1.5513235e-08, 8.903475e-08, 0.9620353)
+bones/6/rotation = Quaternion(-0.16137758, -1.17148765e-07, -2.2278144e-08, 0.98689276)
+bones/7/position = Vector3(-3.7468713e-08, 0.9049122, -0.048173457)
+bones/8/position = Vector3(-3.896624e-08, 0.9049122, -0.048173536)
+bones/9/position = Vector3(0.13114367, 0.9711164, -0.035129115)
+bones/9/rotation = Quaternion(0.99374104, 0.020511206, -0.031121017, 0.105307035)
+bones/11/rotation = Quaternion(0.40603277, -0.0006981613, 0.00031034838, 0.9138583)
+bones/13/rotation = Quaternion(-0.7454823, 0.011862915, 0.024378069, 0.6659738)
+bones/15/position = Vector3(-0.13114369, 0.97111654, -0.035129108)
+bones/15/rotation = Quaternion(0.9747075, -0.0054942337, 0.027522016, 0.22171527)
+bones/17/rotation = Quaternion(0.43118742, 0.0032143446, -0.0015362423, 0.90225536)
+bones/19/rotation = Quaternion(-0.68248135, -0.028162096, -0.0011409834, 0.73035944)
+bones/21/position = Vector3(0.025128614, 1.4347309, 0.045268912)
+bones/21/rotation = Quaternion(-0.47955537, -0.26364002, -0.41009587, 0.7296177)
+bones/22/position = Vector3(0.19031972, 1.4728622, -0.015543207)
+bones/22/rotation = Quaternion(0.03277219, -0.1622956, 0.97516584, -0.1470982)
+bones/23/rotation = Quaternion(4.3535948e-08, -0.029860739, 4.227887e-08, 0.99955416)
+bones/24/rotation = Quaternion(0.33067715, -0.02986143, -0.020586327, 0.94304675)
+bones/46/position = Vector3(-0.011363527, 1.4347309, 0.0452689)
+bones/46/rotation = Quaternion(-0.48742872, 0.24669524, 0.39885974, 0.7365226)
+bones/47/position = Vector3(-0.17354588, 1.4733331, -0.022888808)
+bones/47/rotation = Quaternion(-0.037194975, -0.14332552, 0.97540426, 0.16328149)
+bones/48/rotation = Quaternion(-1.342855e-07, 0.03936904, -1.5046732e-07, 0.9992248)
+bones/49/rotation = Quaternion(0.36827546, 0.03936963, 0.028713666, 0.92843884)
+bones/71/position = Vector3(0.12719111, 1.3546898, -0.025227789)
+bones/71/rotation = Quaternion(1.9906306e-08, 0.6043182, 0.79674315, -4.608694e-08)
+bones/72/position = Vector3(-0.113425955, 1.3546898, -0.025227817)
+bones/72/rotation = Quaternion(1.9906352e-08, 0.6043182, 0.79674315, -4.6086868e-08)
+
+[node name="Knight_02" parent="Rig/CharacterRig/GameRig/Skeleton3D" index="1" unique_id=1604845302]
+visible = false
+
+[node name="Villager_02" parent="Rig/CharacterRig/GameRig/Skeleton3D" index="3" unique_id=30094787]
+visible = true
+
+[node name="RightHandBone" parent="Rig" index="2" unique_id=103654962]
+transform = Transform3D(-0.96234256, -0.27080315, -0.023712358, 0.22972469, -0.85678947, 0.46166953, -0.14533806, 0.43883702, 0.88673466, -0.3473627, 1.0002649, 0.006152779)
+
+[node name="LeftHandBone" parent="Rig" index="3" unique_id=856925588]
+transform = Transform3D(-0.9705132, 0.23910822, 0.030520933, -0.2142827, -0.9137937, 0.3450564, 0.11039571, 0.32834178, 0.9380854, 0.34713018, 0.9849745, -0.02374392)
+
+[node name="PlayerDetector" type="ShapeCast3D" parent="Rig" unique_id=1331346282]
+shape = SubResource("CapsuleShape3D_l4yld")
+target_position = Vector3(0, 1, 1)
+collision_mask = 4
+
+[node name="AreaAttack" parent="Rig" unique_id=1738437052 instance=ExtResource("3_eqilm")]
+target_position = Vector3(0, 1, 1)
+collision_mask = 4
+
+[node name="HealthComponent" parent="." unique_id=354799665 instance=ExtResource("3_am0pq")]
+
+[connection signal="heavy_attack" from="Rig" to="." method="_on_rig_heavy_attack"]
+[connection signal="defeat" from="HealthComponent" to="." method="_on_health_component_defeat"]
+
+[editable path="Rig"]
+[editable path="Rig/CharacterRig"]

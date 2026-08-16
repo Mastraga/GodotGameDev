@@ -2,7 +2,7 @@ extends Resource
 class_name CharacterStats
 
 signal level_up_notification()
-
+signal update_stats()
 
 
 class Ability:
@@ -36,6 +36,7 @@ var xp := 0:
 			level_up()
 			xp -= boundary
 			boundary = percentage_level_upgrade_boundary()
+		update_stats.emit()
 
 const MIN_DASH_COOLDOWN := 1.5
 const MAX_DASH_COOLDOWN := 0.5
@@ -71,6 +72,7 @@ func level_up() -> void:
 	speed.increase()
 	endurance.increase()
 	level_up_notification.emit()
+
 
 func percentage_level_upgrade_boundary() -> int:
 	return int(50 * pow(1.2, level))

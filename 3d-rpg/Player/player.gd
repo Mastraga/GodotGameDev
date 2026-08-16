@@ -1,7 +1,7 @@
 extends CharacterBody3D
 class_name Player
 
-const SPEED = 5.0
+
 const JUMP_VELOCITY = 4.5
 const DECAY := 15.0
 
@@ -63,6 +63,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("right_click"):
 		if rig.is_idle():
 			rig.travel("Overhead")
+	if event.is_action_pressed("debug_gain_xp"):
+		stats.xp += 10000
 
 
 func get_movement_direction() -> Vector3:
@@ -104,13 +106,13 @@ func handle_idle_physics_frame(delta, direction: Vector3) -> void:
 	
 	velocity.x = exponential_decay(
 		velocity.x, 
-		direction.x * SPEED,
+		direction.x * stats.get_base_speed(),
 		DECAY,
 		delta
 		)
 	velocity.z = exponential_decay(
 		velocity.z, 
-		direction.z * SPEED,
+		direction.z * stats.get_base_speed(),
 		DECAY,
 		delta
 		)
@@ -124,7 +126,7 @@ func handle_slashing_physics_frame(delta) -> void:
 	velocity.x = _attack_direction.x * attack_move_speed
 	velocity.z = _attack_direction.z * attack_move_speed
 	look_toward_direction(_attack_direction, delta)
-	attack_cast.deal_damage()
+	attack_cast.deal_damage(10.0 + stats.get_damage_modifier())
 
 func handle_overhead_attack(delta) -> void:
 	if not rig.is_overhead():
@@ -139,7 +141,7 @@ func _on_health_component_defeat() -> void:
 
 
 func _on_rig_heavy_attack() -> void:
-	area_attack.deal_damage(heavy_attack_damage)
+	area_attack.deal_damage(heavy_attack_damage + stats.get_damage_modifier())
 
 
 func exponential_decay(a:float, b:float, decay:float, delta: float) -> float:

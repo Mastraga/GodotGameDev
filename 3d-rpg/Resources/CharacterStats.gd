@@ -27,8 +27,6 @@ var xp := 0:
 	set(value):
 		xp = value
 		var boundary = percentage_level_upgrade_boundary()
-		print(boundary)
-		print(xp)
 		while xp > boundary:
 			level_up()
 			xp -= boundary
@@ -58,7 +56,11 @@ func level_up() -> void:
 	agility.increase()
 	speed.increase()
 	endurance.increase()
-	print("You've reached level ", level)
+	#printt(strength.ability_score,
+	#agility.ability_score,
+	#speed.ability_score,
+	#endurance.ability_score)
+	#print("You've reached level ", level)
 
 func percentage_level_upgrade_boundary() -> int:
 	return int(50 * pow(1.2, level))

@@ -39,10 +39,6 @@ material = SubResource("StandardMaterial3D_84ny0")
 
 [node name="Player" parent="." unique_id=166513279 instance=ExtResource("1_s41d2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, -2)
-mouse_sensitivity = null
-rotation_decay = null
-attack_move_speed = null
-heavy_attack_damage = null
 
 [node name="MapBoundary" type="Node3D" parent="." unique_id=946734426]
 
@@ -136,3 +132,9 @@ transform = Transform3D(0.9659258, 0, 0.25881898, 0, 1, 0, -0.25881898, 0, 0.965
 
 [node name="Enemy3" parent="Enemies" unique_id=195062048 instance=ExtResource("6_t80w2")]
 transform = Transform3D(0.8660254, 0, 0.49999994, 0, 1, 0, -0.49999994, 0, 0.8660254, -13, 0, -10)
+
+[node name="Enemy4" parent="Enemies" unique_id=1192902010 instance=ExtResource("6_t80w2")]
+transform = Transform3D(0.8660254, 0, 0.49999994, 0, 1, 0, -0.49999994, 0, 0.8660254, -9.40511, 0, -11.015835)
+
+[node name="Enemy5" parent="Enemies" unique_id=1594610415 instance=ExtResource("6_t80w2")]
+transform = Transform3D(0.8660254, 0, 0.49999994, 0, 1, 0, -0.49999994, 0, 0.8660254, -12.161296, 0, -14.944346)

@@ -1,6 +1,10 @@
 extends Resource
 class_name CharacterStats
 
+signal level_up_notification()
+
+
+
 class Ability:
 	var min_modifier : float
 	var max_modifier : float
@@ -23,6 +27,7 @@ class Ability:
 		ability_score += randi_range(2, 5)
 
 var level := 1
+
 var xp := 0:
 	set(value):
 		xp = value
@@ -31,6 +36,9 @@ var xp := 0:
 			level_up()
 			xp -= boundary
 			boundary = percentage_level_upgrade_boundary()
+
+const MIN_DASH_COOLDOWN := 1.5
+const MAX_DASH_COOLDOWN := 0.5
 
 # Damage Bonus on attack.
 var strength := Ability.new(2.0, 12.0)
@@ -49,6 +57,12 @@ func get_damage_modifier() -> float:
 
 func get_crit_chance() -> float:
 	return agility.get_modifier()
+	
+func get_max_health() -> int:
+	return 20 + int(level * endurance.get_modifier())
+
+func get_dash_cooldown() -> float:
+	return agility.percentile_lerp(MIN_DASH_COOLDOWN, MAX_DASH_COOLDOWN)
 
 func level_up() -> void:
 	level += 1
@@ -56,11 +70,7 @@ func level_up() -> void:
 	agility.increase()
 	speed.increase()
 	endurance.increase()
-	#printt(strength.ability_score,
-	#agility.ability_score,
-	#speed.ability_score,
-	#endurance.ability_score)
-	#print("You've reached level ", level)
+	level_up_notification.emit()
 
 func percentage_level_upgrade_boundary() -> int:
 	return int(50 * pow(1.2, level))

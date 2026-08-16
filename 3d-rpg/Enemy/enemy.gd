@@ -3,7 +3,8 @@ class_name Enemy
 
 @export var max_health: float = 20.0
 @export var heavy_attack_damage : float = 20.0
-@export var xp_value : int = 21
+@export var xp_value : int = 20
+@export var crit_chance := 0.05
 
 @onready var rig: Node3D = $Rig
 @onready var health_component: HealthComponent = $HealthComponent
@@ -21,6 +22,7 @@ func _physics_process(delta: float) -> void:
 	if rig.is_idle():
 		check_for_attacks()
 
+
 func check_for_attacks() -> void:
 	for collision_id in player_detector.get_collision_count():
 		var collider = player_detector.get_collider(collision_id)
@@ -34,4 +36,4 @@ func _on_health_component_defeat() -> void:
 
 
 func _on_rig_heavy_attack() -> void:
-	area_attack.deal_damage(heavy_attack_damage)
+	area_attack.deal_damage(10.0, crit_chance)

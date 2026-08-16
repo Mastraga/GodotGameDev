@@ -43,50 +43,50 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="Rig" parent="RigPivot" unique_id=2008685454 instance=ExtResource("3_btcbx")]
 
-[node name="Skeleton3D" parent="RigPivot/Rig/CharacterRig/GameRig" parent_id_path=PackedInt32Array(2008685454, 1265756175, 63277129) index="0" unique_id=1217008905]
-bones/0/position = Vector3(3.375078e-15, 0.8921762, -0.048173558)
-bones/2/rotation = Quaternion(-0.004904419, -0.00046571688, 0.0032158105, 0.9999827)
-bones/3/rotation = Quaternion(-0.09932224, -0.00041686613, 0.008518106, 0.9950188)
-bones/4/rotation = Quaternion(0.2792337, 1.4158086e-08, 9.640626e-08, 0.9602232)
-bones/6/rotation = Quaternion(-0.15338974, -1.18117086e-07, -1.62263e-08, 0.98816574)
-bones/7/position = Vector3(-3.7874226e-08, 0.89217615, -0.04817346)
-bones/8/position = Vector3(-5.528756e-08, 0.89217615, -0.048173506)
-bones/9/position = Vector3(0.13114366, 0.95838046, -0.0351291)
-bones/9/rotation = Quaternion(0.9925045, 0.021127297, -0.03083006, 0.11635349)
-bones/11/rotation = Quaternion(0.4311666, -0.0007005767, 0.00033492554, 0.90227205)
-bones/13/rotation = Quaternion(-0.7562935, 0.011902813, 0.024429886, 0.65366787)
-bones/15/position = Vector3(-0.13114367, 0.95838046, -0.035129108)
-bones/15/rotation = Quaternion(0.9720482, -0.005996174, 0.0271731, 0.23312657)
-bones/17/rotation = Quaternion(0.45452404, 0.0033522658, -0.0017107098, 0.8907266)
-bones/19/rotation = Quaternion(-0.6924867, -0.028215246, -0.00042524963, 0.7208786)
-bones/21/position = Vector3(0.025128616, 1.4227424, 0.040717583)
-bones/21/rotation = Quaternion(-0.50119215, -0.25466564, -0.3942999, 0.726966)
-bones/22/position = Vector3(0.1873828, 1.4584885, -0.028791666)
-bones/22/rotation = Quaternion(0.059990518, -0.15812464, 0.97387034, -0.15157287)
-bones/23/rotation = Quaternion(7.445018e-08, -0.007658461, -1.8131661e-09, 0.99997073)
-bones/24/rotation = Quaternion(0.27979213, -0.0075992644, -0.016770212, 0.95988405)
-bones/46/position = Vector3(-0.011363529, 1.4227424, 0.040717576)
-bones/46/rotation = Quaternion(-0.526443, 0.20342839, 0.35904735, 0.74334365)
-bones/47/position = Vector3(-0.16251542, 1.4586214, -0.050415058)
-bones/47/rotation = Quaternion(-0.09945121, -0.13259831, 0.97103375, 0.17210713)
-bones/48/rotation = Quaternion(3.8131876e-08, -0.003010344, 8.701995e-09, 0.9999955)
-bones/49/rotation = Quaternion(0.30973405, -0.0030099272, 0.028553914, 0.9503897)
-bones/71/position = Vector3(0.12719111, 1.3400431, -0.027025891)
-bones/71/rotation = Quaternion(1.8959524e-08, 0.6181253, 0.7860797, -4.660495e-08)
-bones/72/position = Vector3(-0.113425955, 1.3400431, -0.027025918)
-bones/72/rotation = Quaternion(1.8959575e-08, 0.6181253, 0.7860797, -4.660489e-08)
+[node name="Skeleton3D" parent="RigPivot/Rig/CharacterRig/GameRig" parent_id_path=PackedInt32Array(2008685454, 1265756175, 1712596511) index="0" unique_id=1179211822]
+bones/0/position = Vector3(1.381823e-14, 0.89908534, -0.04817352)
+bones/2/rotation = Quaternion(-0.00054769946, -0.0003951053, 0.0032143162, 0.9999947)
+bones/3/rotation = Quaternion(-0.09531013, -0.00036472184, 0.008520799, 0.99541116)
+bones/4/rotation = Quaternion(0.27603766, 1.4870395e-08, 9.262019e-08, 0.9611469)
+bones/6/rotation = Quaternion(-0.15746449, -1.17722145e-07, -1.8771214e-08, 0.9875247)
+bones/7/position = Vector3(-1.8344082e-08, 0.89908516, -0.048173454)
+bones/8/position = Vector3(-8.318621e-08, 0.8990852, -0.048173506)
+bones/9/position = Vector3(0.13114367, 0.96528935, -0.0351291)
+bones/9/rotation = Quaternion(0.9931658, 0.020800645, -0.030982442, 0.11058529)
+bones/11/rotation = Quaternion(0.41791055, -0.0007003172, 0.0003222907, 0.908488)
+bones/13/rotation = Quaternion(-0.75058997, 0.011881989, 0.024399111, 0.6602107)
+bones/15/position = Vector3(-0.1311437, 0.96528953, -0.035129108)
+bones/15/rotation = Quaternion(0.97346693, -0.005731301, 0.027357511, 0.22711462)
+bones/17/rotation = Quaternion(0.44204763, 0.0032785933, -0.0016158426, 0.8969842)
+bones/19/rotation = Quaternion(-0.68721527, -0.028187444, -0.000804466, 0.72590625)
+bones/21/position = Vector3(0.02512861, 1.4291949, 0.043164354)
+bones/21/rotation = Quaternion(-0.48938894, -0.25962475, -0.4028962, 0.7285384)
+bones/22/position = Vector3(0.18902412, 1.4664207, -0.021574218)
+bones/22/rotation = Quaternion(0.04517068, -0.1604118, 0.9746702, -0.1491504)
+bones/23/rotation = Quaternion(6.232309e-08, -0.019776806, -3.0284824e-09, 0.99980444)
+bones/24/rotation = Quaternion(0.30773163, -0.019768422, -0.018948084, 0.9510792)
+bones/46/position = Vector3(-0.011363526, 1.4291949, 0.043164343)
+bones/46/rotation = Quaternion(-0.5051666, 0.2272701, 0.38088754, 0.7403241)
+bones/47/position = Vector3(-0.16890934, 1.4669218, -0.035540905)
+bones/47/rotation = Quaternion(-0.06550215, -0.13852403, 0.97391295, 0.16737467)
+bones/48/rotation = Quaternion(1.1147485e-07, 0.02020071, 8.321791e-08, 0.99979603)
+bones/49/rotation = Quaternion(0.34190515, 0.02020113, 0.028998366, 0.9390697)
+bones/71/position = Vector3(0.12719111, 1.3480456, -0.026051655)
+bones/71/rotation = Quaternion(1.9474124e-08, 0.61063266, 0.7919139, -4.6328278e-08)
+bones/72/position = Vector3(-0.113425955, 1.3480456, -0.026051681)
+bones/72/rotation = Quaternion(1.9474177e-08, 0.61063266, 0.7919139, -4.6328214e-08)
 
-[node name="AnimationPlayer" parent="RigPivot/Rig/CharacterRig" parent_id_path=PackedInt32Array(2008685454, 1265756175) index="1" unique_id=1563695267]
+[node name="AnimationPlayer" parent="RigPivot/Rig/CharacterRig" parent_id_path=PackedInt32Array(2008685454, 1265756175) index="1" unique_id=857417287]
 autoplay = &"Run"
 
 [node name="RightHandBone" parent="RigPivot/Rig" index="2" unique_id=103654962]
-transform = Transform3D(-0.96234363, -0.2707995, -0.023716806, 0.24686831, -0.9071467, 0.34079534, -0.11380182, 0.3221073, 0.9398381, -0.33633146, 0.97250974, -0.050342232)
+transform = Transform3D(-0.96234256, -0.27080402, -0.023712246, 0.2380135, -0.8815216, 0.407762, -0.13132642, 0.3867628, 0.91278017, -0.34272647, 0.9874683, -0.019413617)
 
 [node name="LeftHandBone" parent="RigPivot/Rig" index="3" unique_id=856925588]
-transform = Transform3D(-0.9705195, 0.23908749, 0.030491007, -0.22532147, -0.94491655, 0.23740987, 0.08557322, 0.22354051, 0.9709307, 0.34418797, 0.96240795, -0.06312189)
+transform = Transform3D(-0.97051615, 0.23909833, 0.030506391, -0.21963151, -0.92935956, 0.29673728, 0.099300824, 0.28128827, 0.95447165, 0.3458322, 0.9744557, -0.04150043)
 
 [node name="RayAttachment" type="BoneAttachment3D" parent="RigPivot/Rig" unique_id=1584240129]
-transform = Transform3D(-0.96234363, -0.2707995, -0.023716806, 0.24686831, -0.9071467, 0.34079534, -0.11380182, 0.3221073, 0.9398381, -0.33633146, 0.97250974, -0.050342232)
+transform = Transform3D(-0.96234256, -0.27080402, -0.023712246, 0.2380135, -0.8815216, 0.407762, -0.13132642, 0.3867628, 0.91278017, -0.34272647, 0.9874683, -0.019413617)
 bone_name = "DEF-hand.R"
 bone_idx = 51
 use_external_skeleton = true
@@ -100,15 +100,15 @@ collision_mask = 8
 script = ExtResource("4_gwnis")
 
 [node name="AreaAttack" parent="RigPivot/Rig" unique_id=1738437052 instance=ExtResource("6_fhl08")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-target_position = Vector3(0, 0, 1)
+target_position = Vector3(0, 1, 1)
 collision_mask = 8
 
 [node name="Dash" parent="RigPivot" unique_id=204461526 node_paths=PackedStringArray("player") instance=ExtResource("7_vtle1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.026832342, 0)
 player = NodePath("../..")
 
-[node name="HealthComponent" parent="." unique_id=354799665 instance=ExtResource("5_k53q1")]
+[node name="HealthComponent" parent="." unique_id=354799665 node_paths=PackedStringArray("body") instance=ExtResource("5_k53q1")]
+body = NodePath("..")
 
 [connection signal="heavy_attack" from="RigPivot/Rig" to="." method="_on_rig_heavy_attack"]
 [connection signal="defeat" from="HealthComponent" to="." method="_on_health_component_defeat"]

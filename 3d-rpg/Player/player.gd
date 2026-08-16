@@ -8,7 +8,6 @@ const DECAY := 15.0
 @export var mouse_sensitivity := 0.002
 @export var rotation_decay := 20.0
 @export var attack_move_speed : float = 4.0
-@export var heavy_attack_damage : float = 20.0
 @export_category("RPG Stats")
 @export var stats : CharacterStats
 
@@ -29,6 +28,9 @@ var _look := Vector2.ZERO
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	health_component.set_max_health(30.0)
+	stats.level_up_notification.connect(
+		func(): health_component.set_max_health(stats.get_max_health()))
+	
 	
 #--------------------------------------------------------------------------------
 
@@ -126,7 +128,10 @@ func handle_slashing_physics_frame(delta) -> void:
 	velocity.x = _attack_direction.x * attack_move_speed
 	velocity.z = _attack_direction.z * attack_move_speed
 	look_toward_direction(_attack_direction, delta)
-	attack_cast.deal_damage(10.0 + stats.get_damage_modifier())
+	
+	attack_cast.deal_damage(10.0 + stats.get_damage_modifier(),
+	stats.get_crit_chance()
+	)
 
 func handle_overhead_attack(delta) -> void:
 	if not rig.is_overhead():
@@ -141,7 +146,8 @@ func _on_health_component_defeat() -> void:
 
 
 func _on_rig_heavy_attack() -> void:
-	area_attack.deal_damage(heavy_attack_damage + stats.get_damage_modifier())
+	area_attack.deal_damage(10.0 + stats.get_damage_modifier(),
+	stats.get_crit_chance())
 
 
 func exponential_decay(a:float, b:float, decay:float, delta: float) -> float:

@@ -15,6 +15,11 @@ font_color = Color(0.9607843, 0.7176471, 0.42352942, 1)
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_84ny0"]
+font = ExtResource("3_mm0wo")
+font_size = 84
+shadow_color = Color(0, 0, 0, 1)
+
 [node name="UserInterface" type="Control" unique_id=1715883387]
 process_mode = 3
 layout_mode = 3
@@ -95,6 +100,15 @@ text = "999"
 label_settings = SubResource("LabelSettings_l4yld")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="RestartLabel" type="Label" parent="MarginContainer" unique_id=2135252693]
+visible = false
+layout_mode = 2
+size_flags_vertical = 8
+text = "Press R to Restart Level"
+label_settings = SubResource("LabelSettings_84ny0")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Inventory" parent="." unique_id=27533785 instance=ExtResource("7_l8ojb")]
 visible = false

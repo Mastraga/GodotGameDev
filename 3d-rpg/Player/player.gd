@@ -71,6 +71,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			rig.travel("Overhead")
 	if event.is_action_pressed("debug_gain_xp"):
 		stats.xp += 10000
+	if event.is_action_pressed("restart"):
+		if user_interface.restart_label.visible:
+			get_tree().reload_current_scene()
 
 
 

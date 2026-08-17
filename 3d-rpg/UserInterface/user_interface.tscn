@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://31crqwyffsvw" path="res://Assets/UIAssets/Unitframe/MainBar.png" id="3_1yg0r"]
 [ext_resource type="FontFile" uid="uid://bfnmypwl03176" path="res://Assets/UIAssets/Fonts/LibreBodoni-Regular.ttf" id="3_mm0wo"]
 [ext_resource type="Texture2D" uid="uid://omv3syphpmbw" path="res://Assets/UIAssets/Unitframe/BlueBar.png" id="4_l8ojb"]
+[ext_resource type="PackedScene" uid="uid://v7wmmyw4pbge" path="res://UserInterface/inventory.tscn" id="7_l8ojb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_l4yld"]
 font = ExtResource("3_mm0wo")
@@ -15,6 +16,7 @@ outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
 [node name="UserInterface" type="Control" unique_id=1715883387]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -49,12 +51,9 @@ texture = ExtResource("1_v7due")
 
 [node name="HealthBar" type="TextureProgressBar" parent="MarginContainer/InfoBar/HealthBarUnder" unique_id=981401593]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_right = 348.0
+offset_bottom = 102.0
 value = 100.0
 texture_progress = ExtResource("3_1yg0r")
 
@@ -96,3 +95,7 @@ text = "999"
 label_settings = SubResource("LabelSettings_l4yld")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Inventory" parent="." unique_id=27533785 instance=ExtResource("7_l8ojb")]
+visible = false
+layout_mode = 1

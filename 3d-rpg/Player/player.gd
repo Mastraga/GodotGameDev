@@ -73,6 +73,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		stats.xp += 10000
 
 
+
 func get_movement_direction() -> Vector3:
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	var input_vector := Vector3(input_dir.x, 0, input_dir.y).normalized()

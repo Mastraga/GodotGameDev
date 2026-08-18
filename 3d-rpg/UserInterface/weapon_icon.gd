@@ -1,4 +1,5 @@
 extends ItemIcon
+class_name WeaponIcon
 
 @export var power: int
 @export var item_model: PackedScene

@@ -23,7 +23,6 @@ func take_damage(damage_in: float, is_critical: bool) -> void:
 	var damage_color = Color.WHITE
 	if is_critical:
 		damage *= 2.0
-		print("Critical Hit!")
 		damage_color = Color.RED
 	current_health -= damage
 	VfxManager.spawn_damage_number(damage, damage_color, body.global_position)

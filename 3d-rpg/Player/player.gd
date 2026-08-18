@@ -19,6 +19,7 @@ const DECAY := 15.0
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 @onready var area_attack: ShapeCast3D = $RigPivot/Rig/AreaAttack
+@onready var interaction_cast: ShapeCast3D = $RigPivot/InteractionCast
 @onready var user_interface: Control = $UserInterface
 
 var min_boundary : float = -60
@@ -69,6 +70,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("right_click"):
 		if rig.is_idle():
 			rig.travel("Overhead")
+	if event.is_action_pressed("interact"):
+		interaction_cast.check_interactions()
 	if event.is_action_pressed("debug_gain_xp"):
 		stats.xp += 10000
 	if event.is_action_pressed("restart"):

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cau8ol50dmkui"]
+
+[ext_resource type="PackedScene" uid="uid://m0gi8eougalj" path="res://UserInterface/item_icon.tscn" id="1_cmb7i"]
+[ext_resource type="Script" uid="uid://bbtolgpcfh8di" path="res://UserInterface/shield_icon.gd" id="2_hu1xo"]
+[ext_resource type="Texture2D" uid="uid://bx5na07ggqls" path="res://Assets/UIAssets/Icons/shield_icon.png" id="3_rgj3v"]
+[ext_resource type="PackedScene" uid="uid://dy6ffgbtrhb6s" path="res://Assets/3D_Assets_GODOT_RPG/Character/Gear/Short_Shield.glb" id="3_rnjw5"]
+
+[node name="ShieldIcon" unique_id=1887041713 instance=ExtResource("1_cmb7i")]
+script = ExtResource("2_hu1xo")
+protection = 0
+item_mesh = ExtResource("3_rnjw5")
+
+[node name="TypeIcon" parent="." index="0" unique_id=164360488]
+texture = ExtResource("3_rgj3v")

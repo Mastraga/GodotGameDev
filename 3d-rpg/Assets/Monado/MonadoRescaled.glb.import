@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b6smrmipoighl"
-path="res://.godot/imported/xenoblade_chronicles__monado_free.glb-1b684a38dc11d240fbde806becbcf0d3.scn"
+uid="uid://cry8qke8vcefv"
+path="res://.godot/imported/MonadoRescaled.glb-b1fcf321073c0cdd3cd38e8fcf562fb6.scn"
 
 [deps]
 
-source_file="res://Assets/Monado/xenoblade_chronicles__monado_free.glb"
-dest_files=["res://.godot/imported/xenoblade_chronicles__monado_free.glb-1b684a38dc11d240fbde806becbcf0d3.scn"]
+source_file="res://Assets/Monado/MonadoRescaled.glb"
+dest_files=["res://.godot/imported/MonadoRescaled.glb-b1fcf321073c0cdd3cd38e8fcf562fb6.scn"]
 
 [params]
 

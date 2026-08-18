@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://iiq3sxa8n82f"]
+
+[ext_resource type="PackedScene" uid="uid://iiehf82n68ia" path="res://Assets/3D_Assets_GODOT_RPG/Environment/Chest_Prop.glb" id="1_irule"]
+[ext_resource type="Script" uid="uid://crqp3ikn72p0t" path="res://Interactible/chest.gd" id="1_jiy0p"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_84ny0"]
+size = Vector3(0.765, 0.748, 1.2)
+
+[node name="Chest" type="StaticBody3D" unique_id=1974127314]
+collision_layer = 3
+script = ExtResource("1_jiy0p")
+
+[node name="Chest_Prop2" parent="." unique_id=472773819 instance=ExtResource("1_irule")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=192564479]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.36890137, 0)
+shape = SubResource("BoxShape3D_84ny0")

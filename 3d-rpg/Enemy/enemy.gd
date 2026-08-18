@@ -26,7 +26,13 @@ func _ready() -> void:
 	rig.set_active_mesh(rig.villager_meshes.pick_random())
 	health_component.set_max_health(max_health)
 	rig.replace_shield(shields.pick_random())
-	rig.replace_weapon(weapons.pick_random())
+	var monado_chance = 0.005
+	var monado_range = randf()
+	if monado_range <= monado_chance:
+		rig.replace_weapon(weapons[3])
+	else:
+		weapons.remove_at(3)
+		rig.replace_weapon(weapons.pick_random())
 
 
 func _physics_process(delta: float) -> void:

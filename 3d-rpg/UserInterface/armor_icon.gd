@@ -1,5 +1,5 @@
 extends ItemIcon
-
+class_name ArmorIcon
 @export var power : int
 @export var armor: armor_type
 

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bgdd7l5ofxji5"]
 
 [ext_resource type="PackedScene" uid="uid://0rk6mar0ysob" path="res://Player/player.tscn" id="1_s41d2"]
+[ext_resource type="VoxelGIData" uid="uid://3qayafia2fhv" path="res://Levels/GIdata/level.VoxelGI_data.res" id="1_ugh17"]
 [ext_resource type="PackedScene" uid="uid://3wpiqno6i5eh" path="res://Assets/3D_Assets_GODOT_RPG/Environment/Rock_Cliff_Env_03.glb" id="2_gtnvv"]
 [ext_resource type="PackedScene" uid="uid://l0588xmq64tf" path="res://Assets/3D_Assets_GODOT_RPG/Environment/Bush_Vege_2.glb" id="3_wav5q"]
 [ext_resource type="PackedScene" uid="uid://rpqgoex4ewgp" path="res://Assets/3D_Assets_GODOT_RPG/Environment/Topiary_Tree_Vege_01.glb" id="4_xto7t"]
@@ -13,8 +14,10 @@
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_54b6e"]
 sky_top_color = Color(0.17760001, 0.4306802, 0.74, 1)
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+sky_horizon_color = Color(0.62374115, 0.6690994, 0.78490883, 1)
+ground_bottom_color = Color(0.112770535, 0.19452307, 0.16269016, 1)
+ground_horizon_color = Color(0.52727836, 0.7324954, 0.52723813, 1)
+energy_multiplier = 1.5
 
 [sub_resource type="Sky" id="Sky_s41d2"]
 sky_material = SubResource("ProceduralSkyMaterial_54b6e")
@@ -45,6 +48,7 @@ environment = SubResource("Environment_gtnvv")
 [node name="VoxelGI" type="VoxelGI" parent="." unique_id=1225843931]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.7658997, -12.745187)
 size = Vector3(60, 40, 80)
+data = ExtResource("1_ugh17")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1405975266]
 transform = Transform3D(-0.80901706, -0.5540707, 0.19620676, 0, 0.3338069, 0.9426415, -0.5877852, 0.76261306, -0.27005547, 0, 0, 0)

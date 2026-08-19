@@ -45,6 +45,7 @@ func _physics_process(delta: float) -> void:
 
 	var direction = get_movement_direction()
 	
+	interaction_cast.check_interactions()
 	rig.update_animation_tree(direction)
 	handle_idle_physics_frame(delta, direction)
 	handle_slashing_physics_frame(delta)
@@ -70,8 +71,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("right_click"):
 		if rig.is_idle():
 			rig.travel("Overhead")
-	if event.is_action_pressed("interact"):
-		interaction_cast.check_interactions()
 	if event.is_action_pressed("debug_gain_xp"):
 		stats.xp += 10000
 	if event.is_action_pressed("restart"):

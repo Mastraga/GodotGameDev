@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://bfnmypwl03176" path="res://Assets/UIAssets/Fonts/LibreBodoni-Regular.ttf" id="3_mm0wo"]
 [ext_resource type="Texture2D" uid="uid://omv3syphpmbw" path="res://Assets/UIAssets/Unitframe/BlueBar.png" id="4_l8ojb"]
 [ext_resource type="PackedScene" uid="uid://v7wmmyw4pbge" path="res://UserInterface/inventory.tscn" id="7_l8ojb"]
+[ext_resource type="PackedScene" uid="uid://lpsnt4sht20m" path="res://UserInterface/loot_container.tscn" id="8_7061l"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_l4yld"]
 font = ExtResource("3_mm0wo")
@@ -20,6 +21,80 @@ font = ExtResource("3_mm0wo")
 font_size = 84
 shadow_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_obnsg"]
+font = ExtResource("3_mm0wo")
+font_size = 36
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_l8ojb"]
+color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_l8ojb"]
+font = ExtResource("3_mm0wo")
+font_size = 54
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_l8ojb"]
+resource_name = "FadeOutText"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUD/VBoxContainer/InteractContainer:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HUD/VBoxContainer/InteractContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7061l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUD/VBoxContainer/InteractContainer:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HUD/VBoxContainer/InteractContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6v6ea"]
+_data = {
+&"FadeOutText": SubResource("Animation_l8ojb"),
+&"RESET": SubResource("Animation_7061l")
+}
+
 [node name="UserInterface" type="Control" unique_id=1715883387]
 process_mode = 3
 layout_mode = 3
@@ -31,7 +106,7 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_cp462")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=891308061]
+[node name="HUD" type="MarginContainer" parent="." unique_id=891308061]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -44,17 +119,17 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="InfoBar" type="Control" parent="MarginContainer" unique_id=1392576023]
+[node name="InfoBar" type="Control" parent="HUD" unique_id=1392576023]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="HealthBarUnder" type="TextureRect" parent="MarginContainer/InfoBar" unique_id=1510698462]
+[node name="HealthBarUnder" type="TextureRect" parent="HUD/InfoBar" unique_id=1510698462]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_v7due")
 
-[node name="HealthBar" type="TextureProgressBar" parent="MarginContainer/InfoBar/HealthBarUnder" unique_id=981401593]
+[node name="HealthBar" type="TextureProgressBar" parent="HUD/InfoBar/HealthBarUnder" unique_id=981401593]
 unique_name_in_owner = true
 layout_mode = 0
 offset_right = 348.0
@@ -62,7 +137,7 @@ offset_bottom = 102.0
 value = 100.0
 texture_progress = ExtResource("3_1yg0r")
 
-[node name="HealthLabel" type="Label" parent="MarginContainer/InfoBar/HealthBarUnder/HealthBar" unique_id=172588573]
+[node name="HealthLabel" type="Label" parent="HUD/InfoBar/HealthBarUnder/HealthBar" unique_id=172588573]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(95, 0)
 layout_mode = 1
@@ -74,7 +149,7 @@ text = "999"
 label_settings = SubResource("LabelSettings_l4yld")
 vertical_alignment = 1
 
-[node name="XpBar" type="TextureProgressBar" parent="MarginContainer/InfoBar/HealthBarUnder" unique_id=943412874]
+[node name="XpBar" type="TextureProgressBar" parent="HUD/InfoBar/HealthBarUnder" unique_id=943412874]
 unique_name_in_owner = true
 layout_mode = 0
 offset_right = 348.0
@@ -82,13 +157,13 @@ offset_bottom = 102.0
 value = 100.0
 texture_progress = ExtResource("4_l8ojb")
 
-[node name="HealthBarOver" type="TextureRect" parent="MarginContainer/InfoBar" unique_id=269041197]
+[node name="HealthBarOver" type="TextureRect" parent="HUD/InfoBar" unique_id=269041197]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_mm0wo")
 
-[node name="LevelLabel" type="Label" parent="MarginContainer/InfoBar/HealthBarOver" unique_id=559046330]
+[node name="LevelLabel" type="Label" parent="HUD/InfoBar/HealthBarOver" unique_id=559046330]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(95, 0)
 layout_mode = 1
@@ -101,15 +176,51 @@ label_settings = SubResource("LabelSettings_l4yld")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RestartLabel" type="Label" parent="MarginContainer" unique_id=2135252693]
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD" unique_id=418356580]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+mouse_filter = 2
+
+[node name="RestartLabel" type="Label" parent="HUD/VBoxContainer" unique_id=2135252693]
 visible = false
 layout_mode = 2
-size_flags_vertical = 8
+size_flags_vertical = 1
 text = "Press R to Restart Level"
 label_settings = SubResource("LabelSettings_84ny0")
 horizontal_alignment = 1
-vertical_alignment = 2
+
+[node name="InteractContainer" type="VBoxContainer" parent="HUD/VBoxContainer" unique_id=1907263286]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="InteractButton" type="Label" parent="HUD/VBoxContainer/InteractContainer" unique_id=202408416]
+layout_mode = 2
+text = "F"
+label_settings = SubResource("LabelSettings_obnsg")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="HUD/VBoxContainer/InteractContainer" unique_id=1823309418]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_l8ojb")
+
+[node name="InteractText" type="Label" parent="HUD/VBoxContainer/InteractContainer" unique_id=2054600637]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Open Chest"
+label_settings = SubResource("LabelSettings_l8ojb")
+horizontal_alignment = 1
 
 [node name="Inventory" parent="." unique_id=27533785 instance=ExtResource("7_l8ojb")]
 visible = false
+layout_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=485037496]
+libraries/ = SubResource("AnimationLibrary_6v6ea")
+autoplay = &"RESET"
+
+[node name="LootContainer" parent="." unique_id=1519120260 instance=ExtResource("8_7061l")]
 layout_mode = 1

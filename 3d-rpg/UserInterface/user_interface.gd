@@ -10,7 +10,8 @@ extends Control
 @onready var restart_label: Label = $HUD/VBoxContainer/RestartLabel
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var interact_text: Label = %InteractText
-@onready var loot_container: CenterContainer = $LootContainer
+@onready var loot_container_display: CenterContainer = $LootContainerDisplay
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("open_menu"):
@@ -51,5 +52,5 @@ func update_interact_text(text: String) -> void:
 	animation_player.play("FadeOutText")
 	interact_text.text = text
 
-func open_loot_container() -> void:
-	loot_container.open()
+func open_loot_container(loot: LootContainer) -> void:
+	loot_container_display.open(loot)

@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://lpsnt4sht20m"]
+
+[ext_resource type="Script" uid="uid://ueegaputpas2" path="res://UserInterface/loot_container_display.gd" id="1_5h6cm"]
+[ext_resource type="StyleBox" uid="uid://dhg8fa3a1xcx2" path="res://UserInterface/UI_Panel.tres" id="2_katg3"]
+[ext_resource type="Texture2D" uid="uid://d4geqmblmtvc4" path="res://Assets/UIAssets/Window/window_header.png" id="3_jv0ai"]
+[ext_resource type="FontFile" uid="uid://qd2t07ylewyg" path="res://Assets/UIAssets/Fonts/LibreBodoni-Bold.ttf" id="4_jfp4v"]
+[ext_resource type="Script" uid="uid://csaye2btn7aho" path="res://UserInterface/icon_container.gd" id="5_ddvvd"]
+[ext_resource type="Texture2D" uid="uid://ccegxbgew1lqi" path="res://Assets/UIAssets/Button Small/button_small.png" id="6_xa1xl"]
+[ext_resource type="Texture2D" uid="uid://crylevtk3eo6x" path="res://Assets/UIAssets/Button Small/button_small_press.png" id="7_35ec2"]
+[ext_resource type="Texture2D" uid="uid://bbytosroifgxm" path="res://Assets/UIAssets/Button Small/button_small_hover.png" id="8_lndpm"]
+[ext_resource type="FontFile" uid="uid://bfnmypwl03176" path="res://Assets/UIAssets/Fonts/LibreBodoni-Regular.ttf" id="9_b8c55"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qtj77"]
+font = ExtResource("4_jfp4v")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_237te"]
+font = ExtResource("9_b8c55")
+font_size = 32
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="LootContainerDisplay" type="CenterContainer" unique_id=1519120260]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5h6cm")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1087317371]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_katg3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=2142838141]
+layout_mode = 2
+
+[node name="TitleTexture" type="TextureRect" parent="PanelContainer/VBoxContainer" unique_id=1581257122]
+layout_mode = 2
+texture = ExtResource("3_jv0ai")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="TitleLabel" type="Label" parent="PanelContainer/VBoxContainer/TitleTexture" unique_id=699054390]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Loot box name"
+label_settings = SubResource("LabelSettings_qtj77")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="IconContainer" type="GridContainer" parent="PanelContainer/VBoxContainer" unique_id=1893507442]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 2
+columns = 4
+script = ExtResource("5_ddvvd")
+
+[node name="BackButton" type="TextureButton" parent="PanelContainer/VBoxContainer" unique_id=1879911677]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+texture_normal = ExtResource("6_xa1xl")
+texture_pressed = ExtResource("7_35ec2")
+texture_hover = ExtResource("8_lndpm")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/BackButton" unique_id=1079940293]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Close"
+label_settings = SubResource("LabelSettings_237te")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/BackButton" to="." method="close"]

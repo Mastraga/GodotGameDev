@@ -9,8 +9,4 @@ func check_interactions() -> void:
 			var loot : Array
 			ui.update_interact_text("Open Chest")
 			if Input.is_action_just_pressed("interact"):
-				loot = collider.get_items()
-				ui.open_loot_container()
-
-#reparenting collider.get_items() 
-#to gridcontainer of lootcontainer control node
+				ui.open_loot_container(collider)

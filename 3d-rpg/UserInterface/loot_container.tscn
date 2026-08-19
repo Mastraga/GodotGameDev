@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://d4geqmblmtvc4" path="res://Assets/UIAssets/Window/window_header.png" id="2_awr2t"]
 [ext_resource type="FontFile" uid="uid://qd2t07ylewyg" path="res://Assets/UIAssets/Fonts/LibreBodoni-Bold.ttf" id="3_3bwur"]
 [ext_resource type="PackedScene" uid="uid://m0gi8eougalj" path="res://UserInterface/item_icon.tscn" id="4_sl6j0"]
+[ext_resource type="Script" uid="uid://csaye2btn7aho" path="res://UserInterface/grid_container.gd" id="5_3bwur"]
 [ext_resource type="Texture2D" uid="uid://ccegxbgew1lqi" path="res://Assets/UIAssets/Button Small/button_small.png" id="5_fwdqy"]
 [ext_resource type="Texture2D" uid="uid://crylevtk3eo6x" path="res://Assets/UIAssets/Button Small/button_small_press.png" id="6_0kjyu"]
 [ext_resource type="Texture2D" uid="uid://bbytosroifgxm" path="res://Assets/UIAssets/Button Small/button_small_hover.png" id="7_otsp1"]
@@ -52,33 +53,35 @@ label_settings = SubResource("LabelSettings_qtj77")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="PanelContainer/VBoxContainer" unique_id=1893507442]
+[node name="IconContainer" type="GridContainer" parent="PanelContainer/VBoxContainer" unique_id=1893507442]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(512, 256)
 layout_mode = 2
 columns = 4
+script = ExtResource("5_3bwur")
 
-[node name="ItemIcon" parent="PanelContainer/VBoxContainer/GridContainer" unique_id=1887041713 instance=ExtResource("4_sl6j0")]
+[node name="ItemIcon" parent="PanelContainer/VBoxContainer/IconContainer" unique_id=1887041713 instance=ExtResource("4_sl6j0")]
 layout_mode = 2
 
-[node name="ItemIcon2" parent="PanelContainer/VBoxContainer/GridContainer" unique_id=1068327276 instance=ExtResource("4_sl6j0")]
+[node name="ItemIcon2" parent="PanelContainer/VBoxContainer/IconContainer" unique_id=1068327276 instance=ExtResource("4_sl6j0")]
 layout_mode = 2
 
-[node name="ItemIcon3" parent="PanelContainer/VBoxContainer/GridContainer" unique_id=1827751896 instance=ExtResource("4_sl6j0")]
+[node name="ItemIcon3" parent="PanelContainer/VBoxContainer/IconContainer" unique_id=1827751896 instance=ExtResource("4_sl6j0")]
 layout_mode = 2
 
-[node name="ItemIcon4" parent="PanelContainer/VBoxContainer/GridContainer" unique_id=1799043320 instance=ExtResource("4_sl6j0")]
+[node name="ItemIcon4" parent="PanelContainer/VBoxContainer/IconContainer" unique_id=1799043320 instance=ExtResource("4_sl6j0")]
 layout_mode = 2
 
-[node name="ItemIcon5" parent="PanelContainer/VBoxContainer/GridContainer" unique_id=1350471201 instance=ExtResource("4_sl6j0")]
+[node name="ItemIcon5" parent="PanelContainer/VBoxContainer/IconContainer" unique_id=1350471201 instance=ExtResource("4_sl6j0")]
 layout_mode = 2
 
-[node name="ItemIcon6" parent="PanelContainer/VBoxContainer/GridContainer" unique_id=1296457231 instance=ExtResource("4_sl6j0")]
+[node name="ItemIcon6" parent="PanelContainer/VBoxContainer/IconContainer" unique_id=1296457231 instance=ExtResource("4_sl6j0")]
 layout_mode = 2
 
-[node name="ItemIcon7" parent="PanelContainer/VBoxContainer/GridContainer" unique_id=743207344 instance=ExtResource("4_sl6j0")]
+[node name="ItemIcon7" parent="PanelContainer/VBoxContainer/IconContainer" unique_id=743207344 instance=ExtResource("4_sl6j0")]
 layout_mode = 2
 
-[node name="ItemIcon8" parent="PanelContainer/VBoxContainer/GridContainer" unique_id=204578171 instance=ExtResource("4_sl6j0")]
+[node name="ItemIcon8" parent="PanelContainer/VBoxContainer/IconContainer" unique_id=204578171 instance=ExtResource("4_sl6j0")]
 layout_mode = 2
 
 [node name="BackButton" type="TextureButton" parent="PanelContainer/VBoxContainer" unique_id=1879911677]

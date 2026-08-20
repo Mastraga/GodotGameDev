@@ -1,5 +1,7 @@
 extends CenterContainer
 
+@export var inventory : Inventory
+
 @onready var icon_container: GridContainer = %IconContainer
 @onready var title_label: Label = $PanelContainer/VBoxContainer/TitleTexture/TitleLabel
 
@@ -18,8 +20,10 @@ func open(loot: LootContainer) -> void:
 			current_container.remove_child(item)
 			icon_container.add_child(item)
 			item.visible = true
+			item.interact.connect(pickup_item)
 		visible = true
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		get_tree().paused = true
 		
 func close() -> void:
 	visible = false
@@ -28,4 +32,10 @@ func close() -> void:
 		for item in icon_container.get_children():
 			icon_container.remove_child(item)
 			current_container.add_child(item)
+			item.interact.disconnect(pickup_item)
 			item.visible = false
+	get_tree().paused = false
+
+func pickup_item(icon: ItemIcon) -> void:
+	icon.interact.disconnect(pickup_item)
+	inventory.add_item(icon)

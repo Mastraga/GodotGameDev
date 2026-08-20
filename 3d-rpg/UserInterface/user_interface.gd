@@ -15,10 +15,11 @@ extends Control
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("open_menu"):
-		if inventory.visible:
-			close_menu()
-		else:
-			open_menu()
+		if not loot_container_display.visible:
+			if inventory.visible:
+				close_menu()
+			else:
+				open_menu()
 
 func update_stats_display():
 	level_label.text = str(player.stats.level)

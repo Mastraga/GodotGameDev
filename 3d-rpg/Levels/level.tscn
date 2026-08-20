@@ -333,7 +333,7 @@ power = 10
 
 [node name="Chest2" parent="NavigationRegion3D/Interactible" unique_id=431932532 instance=ExtResource("20_wjjle")]
 transform = Transform3D(0.08268762, 0, 0.9965756, 0, 1, 0, -0.9965756, 0, 0.08268762, 15.983364, 0, -22.612486)
-container_name = "Boobies"
+container_name = "Other Chest"
 
 [node name="ShieldIcon" parent="NavigationRegion3D/Interactible/Chest2" unique_id=373082074 instance=ExtResource("23_r2ueb")]
 visible = false

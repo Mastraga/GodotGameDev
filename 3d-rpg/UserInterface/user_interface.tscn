@@ -222,5 +222,6 @@ layout_mode = 1
 libraries/ = SubResource("AnimationLibrary_6v6ea")
 autoplay = &"RESET"
 
-[node name="LootContainerDisplay" parent="." unique_id=1519120260 instance=ExtResource("8_7061l")]
+[node name="LootContainerDisplay" parent="." unique_id=1519120260 node_paths=PackedStringArray("inventory") instance=ExtResource("8_7061l")]
 layout_mode = 1
+inventory = NodePath("../Inventory")

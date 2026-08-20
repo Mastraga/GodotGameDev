@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://3ecnx36amote" path="res://UserInterface/armor_icon.tscn" id="22_twn60"]
 [ext_resource type="PackedScene" uid="uid://cau8ol50dmkui" path="res://UserInterface/shield_icon.tscn" id="23_r2ueb"]
 [ext_resource type="PackedScene" uid="uid://c546wce8ki322" path="res://UserInterface/weapon_icon.tscn" id="24_o8jhj"]
+[ext_resource type="PackedScene" uid="uid://c8uf70eetmk00" path="res://Enemy/enemy.tscn" id="26_o8jhj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_54b6e"]
 sky_top_color = Color(0.17760001, 0.4306802, 0.74, 1)
@@ -347,3 +348,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.035790205, 1.1554617, 0.67
 
 [node name="Enemies" type="Node3D" parent="." unique_id=1450577230]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99942327, 0)
+
+[node name="Enemy" parent="Enemies" unique_id=456590351 instance=ExtResource("26_o8jhj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5048809, -0.049986362, -13.948073)
+
+[node name="Enemy2" parent="Enemies" unique_id=754136010 instance=ExtResource("26_o8jhj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5908976, -0.049986362, -13.948073)
+
+[node name="Enemy3" parent="Enemies" unique_id=179289119 instance=ExtResource("26_o8jhj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0663223, -0.049986362, -11.6392)
+
+[node name="Enemy4" parent="Enemies" unique_id=1926541999 instance=ExtResource("26_o8jhj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2926767, -0.049986362, -11.972105)

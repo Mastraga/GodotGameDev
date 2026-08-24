@@ -139,7 +139,9 @@ func handle_slashing_physics_frame(delta) -> void:
 	velocity.z = _attack_direction.z * attack_move_speed
 	look_toward_direction(_attack_direction, delta)
 	
-	attack_cast.deal_damage(10.0 + stats.get_damage_modifier(),
+	# weapon damage var to repalce magic number
+	# found in inventory
+	attack_cast.deal_damage(user_interface.inventory.get_weapon_value(),
 	stats.get_crit_chance()
 	)
 
@@ -156,7 +158,7 @@ func _on_health_component_defeat() -> void:
 
 
 func _on_rig_heavy_attack() -> void:
-	area_attack.deal_damage(12.0 + stats.get_damage_modifier(),
+	area_attack.deal_damage(user_interface.inventory.get_weapon_value(),
 	stats.get_crit_chance())
 
 

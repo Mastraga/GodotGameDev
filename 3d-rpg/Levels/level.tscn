@@ -23,9 +23,11 @@
 [ext_resource type="PackedScene" uid="uid://iiq3sxa8n82f" path="res://Interactible/chest.tscn" id="20_wjjle"]
 [ext_resource type="PackedScene" uid="uid://clmq6w6qfg5k1" path="res://UserInterface/currency_icon.tscn" id="21_1sae0"]
 [ext_resource type="PackedScene" uid="uid://3ecnx36amote" path="res://UserInterface/armor_icon.tscn" id="22_twn60"]
+[ext_resource type="PackedScene" uid="uid://qk0ir0y0piys" path="res://Assets/3D_Assets_GODOT_RPG/Character/Gear/Broken_Sword.glb" id="23_nflnv"]
 [ext_resource type="PackedScene" uid="uid://cau8ol50dmkui" path="res://UserInterface/shield_icon.tscn" id="23_r2ueb"]
+[ext_resource type="PackedScene" uid="uid://ck5xvdq7seawl" path="res://Assets/3D_Assets_GODOT_RPG/Character/Gear/Battleaxe.glb" id="24_3kmy4"]
 [ext_resource type="PackedScene" uid="uid://c546wce8ki322" path="res://UserInterface/weapon_icon.tscn" id="24_o8jhj"]
-[ext_resource type="PackedScene" uid="uid://c8uf70eetmk00" path="res://Enemy/enemy.tscn" id="26_o8jhj"]
+[ext_resource type="PackedScene" uid="uid://c8uf70eetmk00" path="res://Enemy/enemy.tscn" id="28_3kmy4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_54b6e"]
 sky_top_color = Color(0.17760001, 0.4306802, 0.74, 1)
@@ -328,6 +330,26 @@ container_name = "Chest"
 [node name="CurrencyIcon" parent="NavigationRegion3D/Interactible/Chest" unique_id=1887041713 instance=ExtResource("21_1sae0")]
 visible = false
 
+[node name="WeaponIcon" parent="NavigationRegion3D/Interactible/Chest" unique_id=1971898290 instance=ExtResource("24_o8jhj")]
+visible = false
+offset_right = 128.0
+offset_bottom = 128.0
+power = 8
+
+[node name="WeaponIcon2" parent="NavigationRegion3D/Interactible/Chest" unique_id=471014785 instance=ExtResource("24_o8jhj")]
+visible = false
+offset_right = 128.0
+offset_bottom = 128.0
+power = 4
+item_model = ExtResource("23_nflnv")
+
+[node name="WeaponIcon3" parent="NavigationRegion3D/Interactible/Chest" unique_id=736809004 instance=ExtResource("24_o8jhj")]
+visible = false
+offset_right = 128.0
+offset_bottom = 128.0
+power = 12
+item_model = ExtResource("24_3kmy4")
+
 [node name="ArmorIcon" parent="NavigationRegion3D/Interactible/Chest" unique_id=1492297193 instance=ExtResource("22_twn60")]
 visible = false
 power = 10
@@ -340,23 +362,20 @@ container_name = "Other Chest"
 visible = false
 protection = 5
 
-[node name="WeaponIcon" parent="NavigationRegion3D/Interactible/Chest2" unique_id=1971898290 instance=ExtResource("24_o8jhj")]
-visible = false
-
 [node name="Player" parent="." unique_id=166513279 instance=ExtResource("1_s41d2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.035790205, 1.1554617, 0.6736046)
 
 [node name="Enemies" type="Node3D" parent="." unique_id=1450577230]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99942327, 0)
 
-[node name="Enemy" parent="Enemies" unique_id=456590351 instance=ExtResource("26_o8jhj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5048809, -0.049986362, -13.948073)
+[node name="Enemy" parent="Enemies" unique_id=456590351 instance=ExtResource("28_3kmy4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -7)
+speed = 0.0
 
-[node name="Enemy2" parent="Enemies" unique_id=754136010 instance=ExtResource("26_o8jhj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5908976, -0.049986362, -13.948073)
+[node name="Enemy2" parent="Enemies" unique_id=588247414 instance=ExtResource("28_3kmy4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -7)
+speed = 0.0
 
-[node name="Enemy3" parent="Enemies" unique_id=179289119 instance=ExtResource("26_o8jhj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0663223, -0.049986362, -11.6392)
-
-[node name="Enemy4" parent="Enemies" unique_id=1926541999 instance=ExtResource("26_o8jhj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2926767, -0.049986362, -11.972105)
+[node name="Enemy3" parent="Enemies" unique_id=847983745 instance=ExtResource("28_3kmy4")]
+transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, -13, 0, -4)
+speed = 0.0

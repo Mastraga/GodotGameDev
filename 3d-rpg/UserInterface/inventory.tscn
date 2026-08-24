@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://bfnmypwl03176" path="res://Assets/UIAssets/Fonts/LibreBodoni-Regular.ttf" id="2_w4h00"]
 [ext_resource type="StyleBox" uid="uid://dhg8fa3a1xcx2" path="res://UserInterface/UI_Panel.tres" id="3_w4h00"]
 [ext_resource type="FontFile" uid="uid://qd2t07ylewyg" path="res://Assets/UIAssets/Fonts/LibreBodoni-Bold.ttf" id="4_h3yq5"]
+[ext_resource type="Texture2D" uid="uid://bif4yqekjmjva" path="res://Assets/UIAssets/Window/NumberFrame.png" id="5_2pqip"]
 [ext_resource type="Texture2D" uid="uid://cx8awiagq1xwl" path="res://Assets/UIAssets/Icons/spell_slot_empty.png" id="5_c11vl"]
 [ext_resource type="PackedScene" uid="uid://b30eq4lc65mbc" path="res://Player/rig.tscn" id="5_qnmx2"]
 [ext_resource type="Texture2D" uid="uid://bbytosroifgxm" path="res://Assets/UIAssets/Button Small/button_small_hover.png" id="7_1aauh"]
@@ -23,6 +24,11 @@ fill_to = Vector2(0.5, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_84ny0"]
 font = ExtResource("2_w4h00")
 font_size = 72
+
+[sub_resource type="LabelSettings" id="LabelSettings_1r5su"]
+font = ExtResource("2_w4h00")
+font_size = 24
+font_color = Color(0.9607843, 0.7176471, 0.42352942, 1)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_54b6e"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -123,10 +129,33 @@ custom_minimum_size = Vector2(960, 0)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("3_w4h00")
 
-[node name="ItemGrid" type="GridContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/HeldItems" unique_id=937028221]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/HeldItems" unique_id=562680476]
+layout_mode = 2
+
+[node name="ItemGrid" type="GridContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/HeldItems/VBoxContainer" unique_id=937028221]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 3
 columns = 7
+
+[node name="GoldFrame" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/HeldItems/VBoxContainer" unique_id=20931175]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("5_2pqip")
+stretch_mode = 4
+
+[node name="GoldLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/HeldItems/VBoxContainer/GoldFrame" unique_id=1017558682]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0g"
+label_settings = SubResource("LabelSettings_1r5su")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1048313875]
 custom_minimum_size = Vector2(512, 1)
@@ -303,6 +332,41 @@ size_flags_horizontal = 3
 text = "9001"
 label_settings = SubResource("LabelSettings_qtj77")
 horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CharacterSheet/VBoxContainer" unique_id=120861383]
+layout_mode = 2
+
+[node name="EquipmentLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CharacterSheet/VBoxContainer" unique_id=1189875562]
+layout_mode = 2
+text = "Equipment"
+label_settings = SubResource("LabelSettings_obnsg")
+horizontal_alignment = 1
+
+[node name="ItemSlotGrid" type="GridContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CharacterSheet/VBoxContainer" unique_id=281513918]
+layout_mode = 2
+size_flags_vertical = 2
+columns = 2
+
+[node name="WeaponSlot" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CharacterSheet/VBoxContainer/ItemSlotGrid" unique_id=968625849]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="ShieldSlot" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CharacterSheet/VBoxContainer/ItemSlotGrid" unique_id=1196376056]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="ArmorSlot" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CharacterSheet/VBoxContainer/ItemSlotGrid" unique_id=1355166340]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
 
 [node name="BackButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1491702382]
 custom_minimum_size = Vector2(200, 80)

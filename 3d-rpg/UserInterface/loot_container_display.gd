@@ -38,4 +38,8 @@ func close() -> void:
 
 func pickup_item(icon: ItemIcon) -> void:
 	icon.interact.disconnect(pickup_item)
-	inventory.add_item(icon)
+	if icon is CurrencyIcon:
+		inventory.add_currency(icon.value)
+		icon.queue_free()
+	else:
+		inventory.add_item(icon)

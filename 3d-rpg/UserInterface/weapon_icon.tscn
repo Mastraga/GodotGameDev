@@ -8,7 +8,7 @@
 [node name="WeaponIcon" unique_id=1887041713 instance=ExtResource("1_d7gw8")]
 script = ExtResource("2_r7j82")
 power = 10
-item_model = ExtResource("3_5pjkh")
+item_mesh = ExtResource("3_5pjkh")
 
 [node name="TypeIcon" parent="." index="0" unique_id=164360488]
 texture = ExtResource("2_13dws")

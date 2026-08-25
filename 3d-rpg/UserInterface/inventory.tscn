@@ -362,6 +362,7 @@ label_settings = SubResource("LabelSettings_obnsg")
 horizontal_alignment = 1
 
 [node name="ItemSlotGrid" type="GridContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CharacterSheet/VBoxContainer" unique_id=281513918]
+custom_minimum_size = Vector2(0, 256)
 layout_mode = 2
 size_flags_vertical = 2
 columns = 2

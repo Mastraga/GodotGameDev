@@ -17,6 +17,7 @@ const RUN_VELOCITY_THRESHOLD := 2.0
 @onready var player_detector: ShapeCast3D = $Rig/PlayerDetector
 @onready var area_attack: ShapeCast3D = $Rig/AreaAttack
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 @onready var player : Player = get_tree().get_first_node_in_group("Player")
 
@@ -33,7 +34,9 @@ func _ready() -> void:
 	else:
 		weapons.remove_at(3)
 		rig.replace_weapon(weapons.pick_random())
-
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("fart"):
+		audio_stream_player_3d.play()
 
 func _physics_process(delta: float) -> void:
 	

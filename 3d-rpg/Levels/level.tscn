@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://cau8ol50dmkui" path="res://UserInterface/shield_icon.tscn" id="23_r2ueb"]
 [ext_resource type="PackedScene" uid="uid://ck5xvdq7seawl" path="res://Assets/3D_Assets_GODOT_RPG/Character/Gear/Battleaxe.glb" id="24_3kmy4"]
 [ext_resource type="PackedScene" uid="uid://c546wce8ki322" path="res://UserInterface/weapon_icon.tscn" id="24_o8jhj"]
+[ext_resource type="PackedScene" uid="uid://bc1s2183rjc0n" path="res://Assets/3D_Assets_GODOT_RPG/Character/Gear/Tall_Shield.glb" id="27_gaktt"]
 [ext_resource type="PackedScene" uid="uid://c8uf70eetmk00" path="res://Enemy/enemy.tscn" id="28_3kmy4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_54b6e"]
@@ -352,7 +353,17 @@ item_model = ExtResource("24_3kmy4")
 
 [node name="ArmorIcon" parent="NavigationRegion3D/Interactible/Chest" unique_id=1492297193 instance=ExtResource("22_twn60")]
 visible = false
-power = 10
+protection = 5.0
+
+[node name="ArmorIcon2" parent="NavigationRegion3D/Interactible/Chest" unique_id=1694218298 instance=ExtResource("22_twn60")]
+visible = false
+protection = 15.0
+armor = 1
+
+[node name="ArmorIcon3" parent="NavigationRegion3D/Interactible/Chest" unique_id=1646540617 instance=ExtResource("22_twn60")]
+visible = false
+protection = 40.0
+armor = 2
 
 [node name="Chest2" parent="NavigationRegion3D/Interactible" unique_id=431932532 instance=ExtResource("20_wjjle")]
 transform = Transform3D(0.08268762, 0, 0.9965756, 0, 1, 0, -0.9965756, 0, 0.08268762, 15.983364, 0, -22.612486)
@@ -361,6 +372,11 @@ container_name = "Other Chest"
 [node name="ShieldIcon" parent="NavigationRegion3D/Interactible/Chest2" unique_id=373082074 instance=ExtResource("23_r2ueb")]
 visible = false
 protection = 5
+
+[node name="ShieldIcon2" parent="NavigationRegion3D/Interactible/Chest2" unique_id=319540940 instance=ExtResource("23_r2ueb")]
+visible = false
+protection = 10
+item_mesh = ExtResource("27_gaktt")
 
 [node name="Player" parent="." unique_id=166513279 instance=ExtResource("1_s41d2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.035790205, 1.1554617, 0.6736046)

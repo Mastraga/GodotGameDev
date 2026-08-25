@@ -1,12 +1,16 @@
 extends Control
 class_name Inventory
 
+const MIN_ARMOR_RATING := 0.0
+const MAX_ARMOR_RATING := 80.0
+
 @onready var level_label: Label = %LevelLabel
 @onready var strength_label: Label = %StrengthLabel
 @onready var agility_label: Label = %AgilityLabel
 @onready var speed_label: Label = %SpeedLabel
 @onready var endurance_label: Label = %EnduranceLabel
 @onready var attack_value: Label = %AttackValue
+@onready var armor_value: Label = %ArmorValue
 @onready var item_grid: GridContainer = %ItemGrid
 @onready var gold_label: Label = %GoldLabel
 
@@ -34,6 +38,7 @@ func update_stats() -> void:
 
 func update_gear_stats() -> void:
 	attack_value.text = str(get_weapon_value())
+	armor_value.text = str(get_armor_value())
 
 func get_weapon_value() -> int:
 	var damage = 0
@@ -42,6 +47,14 @@ func get_weapon_value() -> int:
 	damage += player.stats.get_damage_modifier()
 	return damage
 
+func get_armor_value() -> float:
+	var armor = 0.0
+	if get_shield():
+		armor += get_shield().protection
+	if get_armor():
+		armor += get_armor().protection
+	armor = clampf(armor, MIN_ARMOR_RATING, MAX_ARMOR_RATING)
+	return armor
 
 func _on_back_button_pressed() -> void:
 	get_parent().close_menu()
@@ -66,9 +79,23 @@ func equip_item(item : ItemIcon, item_slot : CenterContainer) -> void:
 func interact(item: ItemIcon) -> void:
 	if item is WeaponIcon:
 		equip_item(item, weapon_slot)
+	if item is ShieldIcon:
+		equip_item(item, shield_slot)
+	if item is ArmorIcon:
+		equip_item(item, armor_slot)
 	update_gear_stats()
 
 func get_weapon() -> WeaponIcon:
 	if weapon_slot.get_child_count() != 1:
 		return null
 	return weapon_slot.get_child(0)
+
+func get_shield() -> ShieldIcon:
+	if shield_slot.get_child_count() != 1:
+		return null
+	return shield_slot.get_child(0)
+
+func get_armor() -> ArmorIcon:
+	if armor_slot.get_child_count() != 1:
+		return null
+	return armor_slot.get_child(0)

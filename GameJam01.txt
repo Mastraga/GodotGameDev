@@ -1,0 +1,8 @@
+Back to school game jam project
+Short vertical slice game
+Timed game, find school supplies and get out the door on time.
+
+2 Books
+1 Binder
+Pencils
+Water Bottle

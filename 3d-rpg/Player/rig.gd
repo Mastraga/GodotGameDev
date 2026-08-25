@@ -14,6 +14,9 @@ signal heavy_attack()
 	$CharacterRig/GameRig/Skeleton3D/Villager_01,
 	$CharacterRig/GameRig/Skeleton3D/Villager_02
 ]
+@onready var knight_steel: MeshInstance3D = $CharacterRig/GameRig/Skeleton3D/Knight_01
+@onready var knight_iron: MeshInstance3D = $CharacterRig/GameRig/Skeleton3D/Knight_02
+
 
 
 var run_path : String = "parameters/MoveSpace/blend_position"
@@ -65,6 +68,14 @@ func replace_weapon(weapon_scene: PackedScene) -> void:
 	var new_weapon = weapon_scene.instantiate()
 	weapon_slot.add_child(new_weapon)
 
+func replace_armor(armor_type : ArmorIcon.armor_type) -> void:
+	match armor_type:
+		ArmorIcon.armor_type.IRON_PLATE:
+			set_active_mesh(knight_iron)
+		ArmorIcon.armor_type.STEEL_PLATE:
+			set_active_mesh(knight_steel)
+		_:
+			printerr("Match %s armor failed"  % armor_type)
 
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Overhead":

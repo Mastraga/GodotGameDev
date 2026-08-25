@@ -378,7 +378,7 @@ visible = false
 protection = 10
 item_mesh = ExtResource("27_gaktt")
 
-[node name="Player" parent="." unique_id=166513279 instance=ExtResource("1_s41d2")]
+[node name="Player" parent="." unique_id=166513279 groups=["Player"] instance=ExtResource("1_s41d2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.035790205, 1.1554617, 0.6736046)
 
 [node name="Enemies" type="Node3D" parent="." unique_id=1450577230]

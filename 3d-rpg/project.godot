@@ -33,6 +33,7 @@ window/stretch/aspect="expand"
 Enemy=""
 Player=""
 Rig=""
+PlayerRig=""
 
 [input]
 

@@ -15,6 +15,7 @@ signal armor_changed(protection: float)
 @onready var armor_value: Label = %ArmorValue
 @onready var item_grid: GridContainer = %ItemGrid
 @onready var gold_label: Label = %GoldLabel
+@onready var equip_sound: AudioStreamPlayer = $EquipSound
 
 @onready var weapon_slot: CenterContainer = %WeaponSlot
 @onready var shield_slot: CenterContainer = %ShieldSlot
@@ -78,6 +79,7 @@ func equip_item(item : ItemIcon, item_slot : CenterContainer) -> void:
 		add_item(child)
 	item.get_parent().remove_child(item)
 	item_slot.add_child(item)
+	equip_sound.play()
 
 func interact(item: ItemIcon) -> void:
 	if item is WeaponIcon:

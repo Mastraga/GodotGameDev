@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bbytosroifgxm" path="res://Assets/UIAssets/Button Small/button_small_hover.png" id="7_1aauh"]
 [ext_resource type="Texture2D" uid="uid://ccegxbgew1lqi" path="res://Assets/UIAssets/Button Small/button_small.png" id="7_5spcf"]
 [ext_resource type="Texture2D" uid="uid://crylevtk3eo6x" path="res://Assets/UIAssets/Button Small/button_small_press.png" id="8_5spcf"]
+[ext_resource type="AudioStream" uid="uid://cwkrdxyqk5v2l" path="res://Assets/Audio/Equip.wav" id="12_pvbvh"]
 
 [sub_resource type="Gradient" id="Gradient_grkre"]
 offsets = PackedFloat32Array(0, 0.8, 0.9)
@@ -410,5 +411,8 @@ text = "Close"
 label_settings = SubResource("LabelSettings_237te")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="EquipSound" type="AudioStreamPlayer" parent="." unique_id=2128547891]
+stream = ExtResource("12_pvbvh")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

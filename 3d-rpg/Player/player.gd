@@ -29,13 +29,13 @@ var _look := Vector2.ZERO
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	health_component.set_max_health(30.0)
+	health_component.set_max_health(stats.get_max_health())
 	stats.level_up_notification.connect(
 		func(): health_component.set_max_health(stats.get_max_health()))
 	
 	stats.update_stats.connect(user_interface.update_stats_display)
 	user_interface.update_stats_display()
-	
+	SceneTransition.fade_in()
 	
 #--------------------------------------------------------------------------------
 

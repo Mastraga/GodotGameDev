@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://b4bidaq707seh"]
 
+[ext_resource type="Script" uid="uid://pkvye2cac0hq" path="res://Interactible/passage.gd" id="1_hknka"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n8lvt"]
 albedo_color = Color(0.039215688, 0.039215688, 0.039215688, 1)
 proximity_fade_enabled = true
@@ -12,6 +14,8 @@ size = Vector3(5, 4, 1)
 data = PackedVector3Array(-2.5, 2, 0.5, 2.5, 2, 0.5, -2.5, -2, 0.5, 2.5, 2, 0.5, 2.5, -2, 0.5, -2.5, -2, 0.5, 2.5, 2, -0.5, -2.5, 2, -0.5, 2.5, -2, -0.5, -2.5, 2, -0.5, -2.5, -2, -0.5, 2.5, -2, -0.5, 2.5, 2, 0.5, 2.5, 2, -0.5, 2.5, -2, 0.5, 2.5, 2, -0.5, 2.5, -2, -0.5, 2.5, -2, 0.5, -2.5, 2, -0.5, -2.5, 2, 0.5, -2.5, -2, -0.5, -2.5, 2, 0.5, -2.5, -2, 0.5, -2.5, -2, -0.5, 2.5, 2, 0.5, -2.5, 2, 0.5, 2.5, 2, -0.5, -2.5, 2, 0.5, -2.5, 2, -0.5, 2.5, 2, -0.5, -2.5, -2, 0.5, 2.5, -2, 0.5, -2.5, -2, -0.5, 2.5, -2, 0.5, 2.5, -2, -0.5, -2.5, -2, -0.5)
 
 [node name="Passage" type="StaticBody3D" unique_id=1709788751]
+collision_layer = 3
+script = ExtResource("1_hknka")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2051959990]
 mesh = SubResource("BoxMesh_5p3f0")

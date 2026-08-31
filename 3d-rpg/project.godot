@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 
 VfxManager="*uid://bwf58gbw6dani"
 SceneTransition="*uid://dtbivh1l27pp6"
+PersistentData="*uid://cd4h0mwqfkcb4"
 
 [display]
 

@@ -31,6 +31,7 @@ signal armor_changed(protection: float)
 
 func _ready() -> void:
 	update_stats()
+	load_items_from_persistent_data()
 
 func update_stats() -> void:
 	level_label.text = "Level %d" % [player.stats.level]
@@ -79,7 +80,8 @@ func equip_item(item : ItemIcon, item_slot : CenterContainer) -> void:
 		add_item(child)
 	item.get_parent().remove_child(item)
 	item_slot.add_child(item)
-	equip_sound.play()
+	if visible:
+		equip_sound.play()
 
 func interact(item: ItemIcon) -> void:
 	if item is WeaponIcon:
@@ -107,3 +109,11 @@ func get_armor() -> ArmorIcon:
 	if armor_slot.get_child_count() != 1:
 		return null
 	return armor_slot.get_child(0)
+
+func load_items_from_persistent_data() -> void:
+	for item in PersistentData.get_inventory():
+		add_item(item)
+	for item in PersistentData.get_equipped_items():
+		add_item(item)
+		interact(item)
+	gold = PersistentData.player_gold

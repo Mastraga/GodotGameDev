@@ -35,6 +35,8 @@ func _ready() -> void:
 	
 	stats.update_stats.connect(user_interface.update_stats_display)
 	user_interface.update_stats_display()
+	if PersistentData.current_health:
+		health_component.current_health = PersistentData.current_health
 	SceneTransition.fade_in()
 	#rig.set_active_mesh(rig.villager_meshes[1])
 	

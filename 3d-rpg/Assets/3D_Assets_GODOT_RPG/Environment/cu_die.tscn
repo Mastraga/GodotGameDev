@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://yag5moo6yjle"]
+
+[ext_resource type="PackedScene" uid="uid://bgeh6bflq3rir" path="res://Assets/Monado/CU_Die.fbx" id="1_nh54r"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gtly4"]
+size = Vector3(0.1348999, 0.1361328, 0.1364624)
+
+[node name="CU_Die" unique_id=1737000679 instance=ExtResource("1_nh54r")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="CU_Die/StaticBody3D" parent_id_path=PackedInt32Array(265960702) index="0" unique_id=1185024686]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00015258044, 0.00048828125, 6.1020255e-06)
+shape = SubResource("BoxShape3D_gtly4")

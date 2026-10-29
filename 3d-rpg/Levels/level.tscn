@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://c546wce8ki322" path="res://UserInterface/weapon_icon.tscn" id="24_o8jhj"]
 [ext_resource type="PackedScene" uid="uid://b4bidaq707seh" path="res://Interactible/passage.tscn" id="28_3fdi5"]
 [ext_resource type="PackedScene" uid="uid://c8uf70eetmk00" path="res://Enemy/enemy.tscn" id="28_3kmy4"]
+[ext_resource type="PackedScene" uid="uid://bgagh7mtu0t5v" path="res://Levels/skybox_texture.tscn" id="28_gaktt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_54b6e"]
 sky_top_color = Color(0.17760001, 0.4306802, 0.74, 1)
@@ -178,6 +179,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4958, 0, -9.054472)
 
 [node name="Tree_Group_Vege2" parent="NavigationRegion3D/Vegetation" unique_id=896397613 instance=ExtResource("5_uhyyw")]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 3, -1, 5)
+visible = false
 
 [node name="Castle" type="Node3D" parent="NavigationRegion3D" unique_id=1096209073]
 
@@ -361,3 +363,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -7)
 
 [node name="Enemy3" parent="Enemies" unique_id=847983745 instance=ExtResource("28_3kmy4")]
 transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, -13, 0, -4)
+
+[node name="Skybox_Texture" parent="." unique_id=1708307315 instance=ExtResource("28_gaktt")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 3, -258, 0)

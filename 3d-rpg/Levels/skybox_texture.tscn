@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bgagh7mtu0t5v"]
+
+[ext_resource type="PackedScene" uid="uid://drmibs3rl374v" path="res://Assets/Skybox_Texture.glb" id="1_w63a6"]
+
+[node name="Skybox_Texture" unique_id=1708307315 instance=ExtResource("1_w63a6")]
